@@ -3,7 +3,14 @@ extends layout
 block content
   h1= title
   - var results = [{type:"Rolled", price: 20.0, flavor:"ButterScotch"},{type:"Soft Serve", price: 30.0, flavor:"Black Current"},{type:"Gelato", price: 40.0, flavor:"Chocolate"}]
-  div(class="container-fluid")
-   div(class="row")
-    each form in results
-     div(class="col-sm-2") type: #{form.type} - price: #{form.price} - flavor: #{form.flavor}
+  div(class="container-fluid mt-3")
+  div(class="row")
+    each form,i in results
+        div(class="col-sm-4 bg-info m-1 p-3" onclick=`buy(${i})`) #{form.type} - #{form.price} - #{form.flavor}
+  script.
+     
+      function buy(a)
+      {
+        alert(`You purchased Item ${a+1}`)
+      }
+  
